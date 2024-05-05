@@ -32,15 +32,15 @@ async def start(_, msg):
           InlineKeyboardButton("⚡ 𝗔𝗗𝗗 𝗠𝗘 ⚡", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
         [
-          InlineKeyboardButton("🤍 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 🤍", url="https://t.me/+uF_GVlNuJ_dkZGVl"),
+          InlineKeyboardButton("🤍 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 🤍", url="https://t.me/RBGOFFICIAL1"),
           InlineKeyboardButton("👑 𝗢𝗪𝗡𝗘𝗥 👑", url="https://t.me/l_MR_ll_KING_l"),
           ],
                [
-                InlineKeyboardButton("🖤 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 🖤", url="https://t.me/+N3uhCMbt514yYzc9"),
+                InlineKeyboardButton("🖤 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 🖤", url="http://t.me/+YvPfBPHypFgzOTY9"),
 
 ],
 [
-              InlineKeyboardButton("🔥 𝐌𝐔𝐒𝐈𝐂 𝐑𝐄𝐏𝐎 🔥", url=f"https://t.me/l_MR_ll_KING_l"),
+              InlineKeyboardButton("🔥 𝐌𝐔𝐒𝐈𝐂 𝐑𝐄𝐏𝐎 🔥", url=f"https://t.me/NOBiTA_FIREX"),
               InlineKeyboardButton("︎", url=f""),
               ],
               [
@@ -71,7 +71,7 @@ InlineKeyboardButton("", url=f""),
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await msg.reply_photo(
-        photo="https://telegra.ph/file/06870e77517a855a9b6a6.jpg",
+        photo="https://te.legra.ph/file/27bc3892175c6edcd76fe.jpg",
         caption=start_txt,
         reply_markup=reply_markup
     )
@@ -84,7 +84,7 @@ InlineKeyboardButton("", url=f""),
 @capture_err
 async def repo(_, message):
     async with httpx.AsyncClient() as client:
-        response = await client.get("https://api.github.com/repos/KING0712/QUEEN_MUSIC/contributors")
+        response = await client.get("https://api.github.com/repos/MAHTO-ANJALI/PRISHUxMUSICxBOT/contributors")
     
     if response.status_code == 200:
         users = response.json()
@@ -94,7 +94,7 @@ async def repo(_, message):
             list_of_users += f"{count}. [{user['login']}]({user['html_url']})\n"
             count += 1
 
-        text = f"""[𝖱𝖤𝖯𝖮 𝖫𝖨𝖭𝖪](https://github.com/KING0712/QUEEN_MUSIC) | [UPDATES](https://t.me/l_ABOUT_l_KING_l)
+        text = f"""[𝖱𝖤𝖯𝖮 𝖫𝖨𝖭𝖪](https://github.com/MAHTO-ANJALI/PRISHUxMUSICxBOT) | [UPDATES](https://t.me/N3ON_BIO)
 | 𝖢𝖮𝖭𝖳𝖱𝖨𝖡𝖴𝖳𝖮𝖱𝖲 |
 ----------------
 {list_of_users}"""
