@@ -14,9 +14,9 @@ API_HASH = getenv("API_HASH")
 # ------------------------------------------------------
 BOT_TOKEN = getenv("BOT_TOKEN")
 # -------------------------------------------------------
-OWNER_USERNAME = getenv("OWNER_USERNAME","lXl_DEVIL_l")
+OWNER_USERNAME = getenv("OWNER_USERNAME","NOBiTA_FIREX")
 # --------------------------------------------------------
-BOT_USERNAME = getenv("BOT_USERNAME" , "l_OP_ll_MUSIC_ll_BOT")
+BOT_USERNAME = getenv("BOT_USERNAME" , "PRISHUMUSICBOT")
 # --------------------------------------------------------
 BOT_NAME = getenv("BOT_NAME" , "QUEEN")
 # ---------------------------------------------------------
@@ -35,10 +35,10 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 # ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
-LOGGER_ID = int(getenv("LOGGER_ID", -1002022711717))
+LOGGER_ID = int(getenv("LOGGER_ID", -1002059899164))
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-OWNER_ID = int(getenv("OWNER_ID", 7012132283))
+OWNER_ID = int(getenv("OWNER_ID", 6350757877))
 # -----------------------------------------------------------------
 # -----------------------------------------------------------------
 
@@ -53,7 +53,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # ----------------------------------------------------------------
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/KING0712/QUEEN_MUSIC",
+    "https://github.com/MAHTO-ANJALI/PRISHUxMUSICxBOT",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
@@ -67,8 +67,8 @@ GIT_TOKEN = getenv(
 
 # ------------------------------------------------------------------------
 # -------------------------------------------------------------------------
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/KING_BHAI_BABY")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/KING_BHAI_BABY")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "http://t.me/+YvPfBPHypFgzOTY9")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/RBGOFFICIAL1")
 # ------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------
 
@@ -141,13 +141,13 @@ confirmer = {}
 # ------------------------------------------------------------------------
 # ------------------------------------------------------------------------
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://telegra.ph/file/a932c5cb54bd969dff8c5.jpg"
+    "START_IMG_URL", "https://te.legra.ph/file/a4804eb71d0cf6876e2fc.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://telegra.ph/file/a932c5cb54bd969dff8c5.jpg"
+    "PING_IMG_URL", "https://te.legra.ph/file/02323b5e209301ee27325.jpg"
 )
-PLAYLIST_IMG_URL = "https://telegra.ph/file/a932c5cb54bd969dff8c5.jpg"
-STATS_IMG_URL = "https://telegra.ph/file/a932c5cb54bd969dff8c5.jpg"
+PLAYLIST_IMG_URL = "https://te.legra.ph/file/626fd84a860dd8a497fc2.jpg"
+STATS_IMG_URL = "https://te.legra.ph/file/a4804eb71d0cf6876e2fc.jpg"
 TELEGRAM_AUDIO_URL = "https://telegra.ph/file/a932c5cb54bd969dff8c5.jpg"
 TELEGRAM_VIDEO_URL = "https://telegra.ph/file/a932c5cb54bd969dff8c5.jpg"
 STREAM_IMG_URL = "https://telegra.ph/file/a932c5cb54bd969dff8c5.jpg"
