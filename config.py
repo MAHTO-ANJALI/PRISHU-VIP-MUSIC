@@ -16,7 +16,7 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 # -------------------------------------------------------
 OWNER_USERNAME = getenv("OWNER_USERNAME","NOBiTA_FIREX")
 # --------------------------------------------------------
-BOT_USERNAME = getenv("BOT_USERNAME" , "PRISHUMUSICBOT")
+BOT_USERNAME = getenv("BOT_USERNAME" , "PRISHAxMUSICBOT")
 # --------------------------------------------------------
 BOT_NAME = getenv("BOT_NAME" , "PRISHU")
 # ---------------------------------------------------------
@@ -35,7 +35,7 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 # ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
-LOGGER_ID = int(getenv("LOGGER_ID", -1002059899164))
+LOGGER_ID = int(getenv("LOGGER_ID", -1002077359484))
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 OWNER_ID = int(getenv("OWNER_ID", 6350757877))
