@@ -28,91 +28,157 @@ def track_markup(_, videoid, user_id, channel, fplay):
     return buttons
 
 
-def stream_markup_timer(_, chat_id, played, dur):
+def stream_markup_timer(_, videoid, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 100
-    umm = math.floor(percentage)
-    if 0 < umm <= 10:
-        bar = "꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩـ꯭꯭PRISHU-MUSIC"
-    elif 10 < umm < 20:
-        bar = "꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩـ꯭꯭꯭PRISHU-MUSICﮩ٨"
-    elif 20 <= umm < 30:
-        bar = "꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩPRISHU-MUSICـ꯭꯭꯭꯭ﮩ٨꯭ﮩ٨꯭ـﮩ"
-    elif 30 <= umm < 40:
-        bar = "꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩPRISHU-MUSICـ꯭꯭꯭꯭ﮩ٨꯭ﮩ٨꯭ـﮩ"
-    elif 40 <= umm < 50:
-        bar = "꯭ﮩ٨꯭ـﮩ꯭ـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـPRISHU-MUSICـ꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ـ꯭꯭꯭꯭"
-    elif 50 <= umm < 60:
-        bar = "꯭ﮩـﮩ꯭ـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ـ꯭꯭꯭ﮩPRISHU-MUSICـﮩ꯭ـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ـ꯭꯭꯭꯭"
-    elif 60 <= umm < 70:
-        bar = "꯭ﮩ٨꯭ـﮩـ꯭꯭꯭꯭PRISHU-MUSICﮩ٨ـ꯭꯭꯭꯭꯭ﮩ٨꯭ــﮩ꯭ﮩ٨꯭ـﮩ"
-    elif 70 <= umm < 80:
-        bar = "꯭ﮩ٨꯭PRISHU-MUSICـﮩـ꯭꯭꯭꯭ﮩ٨ـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ"
-    elif 80 <= umm < 95:
-        bar = "ـ꯭꯭꯭꯭PRISHU-MUSICﮩ٨꯭ﮩ٨꯭ـﮩـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ"
+    SHUKLAMUSIC = math.floor(percentage)
+    if 0 < SHUKLAMUSIC <= 10:
+        bar = "𖢵—————————"
+    elif 10 < SHUKLAMUSIC < 20:
+        bar = "—𖢵————————"
+    elif 20 <= SHUKLAMUSIC < 30:
+        bar = "——𖢵———————"
+    elif 30 <= SHUKLAMUSIC < 40:
+        bar = "———𖢵——————"
+    elif 40 <= SHUKLAMUSIC < 50:
+        bar = "————𖢵—————"
+    elif 50 <= SHUKLAMUSIC < 60:
+        bar = "—————𖢵————"
+    elif 60 <= SHUKLAMUSIC < 70:
+        bar = "——————𖢵———"
+    elif 70 <= SHUKLAMUSIC < 80:
+        bar = "———————𖢵——"
+    elif 80 <= SHUKLAMUSIC < 95:
+        bar = "————————𖢵—"
     else:
-        bar = "ـ꯭꯭꯭꯭PRISHU-MUSICﮩ٨꯭ﮩ٨꯭ـﮩـ꯭꯭꯭꯭꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ꯭ﮩ٨꯭ـﮩ"
+        bar = "—————————𖢵"
+
     buttons = [
-                [
+        [
             InlineKeyboardButton(
                 text=f"{played} {bar} {dur}",
                 callback_data="GetTimer",
             )
         ],
         [
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Skip|{chat_id}"),
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(
+                text="❚❚",
+                callback_data=f"ADMIN Pause|{chat_id}",
+            ),
+            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Skip {videoid}"),
+            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="✚", callback_data=f"add_playlist|{chat_id}"),
         ],
         [
-         InlineKeyboardButton(text="↬꯭֟፝𝐍ᴏʙɪᴛᴀ x𝐃 ꯭⎯⃘⃔⃕🖤", user_id=config.OWNER_ID),
-         InlineKeyboardButton(text="↬꯭֟፝𝐒ᴜᴘᴘᴏʀᴛ ꯭⎯⃘⃔⃕🖤", url=f"{SUPPORT_CHAT}",),
+            InlineKeyboardButton(text="[🇮🇳] Dᴇᴠ", url=f"https://t.me/N3ON_xD"),
+            InlineKeyboardButton(
+                text="Cʜᴀᴛ Gʀᴏᴜᴘ", url=f"https://t.me/DANGEROUS_FIGHTER_GROUP"
+            ),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        [
+            InlineKeyboardButton(
+                text="• Cʟᴏsᴇ •", callback_data=f"ADMIN CloseA|{chat_id}"
+            )
+        ],
     ]
     return buttons
 
 
-def stream_markup(_, chat_id):
+def telegram_markup_timer(_, chat_id, played, dur):
+    played_sec = time_to_seconds(played)
+    duration_sec = time_to_seconds(dur)
+    percentage = (played_sec / duration_sec) * 100
+    OpVirMusic = math.floor(percentage)
+    if 0 < SHUKLAMUSIC <= 10:
+        bar = "⬤─────────"
+    elif 10 < SHUKLAMUSIC < 20:
+        bar = "━⬤────────"
+    elif 20 <= SHUKLAMUSIC < 30:
+        bar = "━━⬤───────"
+    elif 30 <= SHUKLAMUSIC < 40:
+        bar = "━━━⬤──────"
+    elif 40 <= SHUKLAMUSIC < 50:
+        bar = "━━━━⬤─────"
+    elif 50 <= SHUKLAMUSIC < 60:
+        bar = "━━━━━⬤────"
+    elif 60 <= SHUKLAMUSIC < 70:
+        bar = "━━━━━━⬤───"
+    elif 70 <= SHUKLAMUSIC < 80:
+        bar = "━━━━━━━⬤──"
+    elif 80 <= SHUKLAMUSIC < 95:
+        bar = "━━━━━━━━⬤─"
+    else:
+        bar = "━━━━━━━━━⬤"
+
     buttons = [
         [
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Skip|{chat_id}"),
-            InlineKeyboardButton(text="", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(
+                text=f"{played} {bar} {dur}",
+                callback_data="GetTimer",
+            )
         ],
         [
-         InlineKeyboardButton(text="↬꯭֟፝𝐍ᴏʙɪᴛᴀ x𝐃 ꯭⎯⃘⃔⃕🖤", user_id=config.OWNER_ID),
-         InlineKeyboardButton(text="↬꯭֟፝𝐒ᴜᴘᴘᴏʀᴛ ꯭⎯⃘⃔⃕🖤", url=f"{SUPPORT_CHAT}",),
+            InlineKeyboardButton(
+                text="❚❚",
+                callback_data=f"ADMIN Pause|{chat_id}",
+            ),
+            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(
+                text="↻", callback_data=f"ADMIN Skip {videoid}|{chat_id}"
+            ),
+            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="✚", callback_data=f"add_playlist|{chat_id}"),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        [
+            InlineKeyboardButton(
+                text="• Cʟᴏsᴇ •", callback_data=f"ADMIN CloseA|{chat_id}"
+            )
+        ],
     ]
     return buttons
 
 
-def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
+def stream_markup(_, videoid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],
-                callback_data=f"SHUKLAPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
+                text="❚❚",
+                callback_data=f"ADMIN Pause|{chat_id}",
             ),
-            InlineKeyboardButton(
-                text=_["P_B_2"],
-                callback_data=f"SHUKLAPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
-            ),
+            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Skip {videoid}"),
+            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="✚", callback_data=f"add_playlist|{chat_id}"),
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
-                callback_data=f"forceclose {videoid}|{user_id}",
-            ),
+                text="• Cʟᴏsᴇ •", callback_data=f"ADMIN CloseA|{chat_id}"
+            )
         ],
     ]
     return buttons
 
+
+def telegram_markup(_, chat_id):
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text="❚❚",
+                callback_data=f"ADMIN Pause|{chat_id}",
+            ),
+            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Skip {videoid}"),
+            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+        ],
+        [
+            InlineKeyboardButton(
+                text="• Cʟᴏsᴇ •", callback_data=f"ADMIN CloseA|{chat_id}"
+            )
+        ],
+    ]
+    return buttons
 
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     buttons = [
