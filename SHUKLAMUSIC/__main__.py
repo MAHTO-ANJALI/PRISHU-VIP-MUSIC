@@ -1,16 +1,18 @@
 import asyncio
 import importlib
+import sys
 
 from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
+from config import BANNED_USERS
 from SHUKLAMUSIC import LOGGER, app, userbot
-from SHUKLAMUSIC.core.call import SHUKLA
-from SHUKLAMUSIC.misc import sudo
+from SHUKLAMUSIC.core.call import Anon
 from SHUKLAMUSIC.plugins import ALL_MODULES
 from SHUKLAMUSIC.utils.database import get_banned_users, get_gbanned
-from config import BANNED_USERS
+
+loop = asyncio.get_event_loop()
 
 
 async def init():
@@ -21,9 +23,17 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER(__name__).error("𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐍𝐨𝐭 𝐅𝐢𝐥𝐥𝐞𝐝, 𝐏𝐥𝐞𝐚𝐬𝐞 𝐅𝐢𝐥𝐥 𝐀 𝐏𝐲𝐫𝐨𝐠𝐫𝐚𝐦 𝐒𝐞𝐬𝐬𝐢𝐨𝐧")
-        exit()
-    await sudo()
+        LOGGER("SHUKLAMUSIC").error(
+            "WTF Baby ! Atleast add a pyrogram string, How Cheap..."
+        )
+        return
+    if (
+        not config.SPOTIFY_CLIENT_ID
+        and not config.SPOTIFY_CLIENT_SECRET
+    ):
+        LOGGER("SHUKLAMUSIC").warning(
+            "Sur spotify id aur secret toh daala hi nahi aapne ab toh spotify se nahi chala paaoge gaane."
+        )
     try:
         users = await get_gbanned()
         for user_id in users:
@@ -35,28 +45,32 @@ async def init():
         pass
     await app.start()
     for all_module in ALL_MODULES:
-        importlib.import_module("SHUKLAMUSIC.plugins" + all_module)
-    LOGGER("SHUKLAMUSIC.plugins").info("𝐀𝐥𝐥 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐋𝐨𝐚𝐝𝐞𝐝 𝐁𝐚𝐛𝐲🥳...")
+        importlib.import_module("SHUKLAMUSIC.plugins." + all_module)
+    LOGGER("SHUKLAMUSIC.plugins").info(
+        "Necessary Modules Imported Successfully."
+    )
     await userbot.start()
-    await SHUKLA.start()
+    await Anon.start()
     try:
-        await SHUKLA.stream_call("https://te.legra.ph/file/774624c731c7b51b09a6b.mp4")
-    except NoActiveGroupCall:
-        LOGGER("SHUKLAMUSIC").error(
-            "𝗣𝗹𝗭 𝗦𝗧𝗔𝗥𝗧 𝗬𝗢𝗨𝗥 𝗟𝗢𝗚 𝗚𝗥𝗢𝗨𝗣 𝗩𝗢𝗜𝗖𝗘𝗖𝗛𝗔𝗧\𝗖𝗛𝗔𝗡𝗡𝗘𝗟\n\n𝗗𝗘𝗩𝗜𝗟 𝗕𝗢𝗧 𝗦𝗧𝗢𝗣........"
-        )
-        exit()
+        await Anon.stream_decall("https://telegra.ph/file/de3464aa7d6bfafdd2dc3.mp4")
     except:
         pass
-    await SHUKLA.decorators()
-    LOGGER("SHUKLAMUSIC").info(
-        "╔═════ஜ۩۞۩ஜ════╗\n  ☠︎︎𝗠𝗔𝗗𝗘 𝗕𝗬 𝗠𝗔𝗛𝗧𝗢☠︎︎\n╚═════ஜ۩۞۩ஜ════╝"
-    )
+    try:
+        await Anon.stream_call(
+            "https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4"
+        )
+    except NoActiveGroupCall:
+        LOGGER("SHUKLAMUSIC").error(
+            "[ERROR] - \n\nHey Baby, firstly open telegram and turn on voice chat in Logger Group else fu*k off. If you ever ended voice chat in log group i will stop working and users will fu*k you up."
+        )
+        sys.exit()
+    except:
+        pass
+    await Anon.decorators()
+    LOGGER("SHUKLAMUSIC").info("\x41\x6e\x6f\x6e\x58\x20\x4d\x75\x73\x69\x63\x20\x42\x6f\x74\x20\x53\x74\x61\x72\x74\x65\x64\x20\x53\x75\x63\x63\x65\x73\x73\x66\x75\x6c\x6c\x79\x2e\x2e\x2e\n\n\x4e\x6f\x77\x20\x64\x72\x6f\x70\x20\x79\x6f\x75\x72\x20\x67\x69\x72\x6c\x66\x72\x69\x65\x6e\x64\'\x73\x20\x6e\x75\x64\x65\x73\x20\x61\x74\x20\x40\x44\x65\x76\x69\x6c\x73\x48\x65\x61\x76\x65\x6e\x4d\x46")
     await idle()
-    await app.stop()
-    await userbot.stop()
-    LOGGER("SHUKLAMUSIC").info("𝗦𝗧𝗢𝗣 𝗣𝗥𝗜𝗦𝗛𝗨 𝗠𝗨𝗦𝗜𝗖🎻 𝗕𝗢𝗧..")
 
 
 if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(init())
+    loop.run_until_complete(init())
+    LOGGER("SHUKLAMUSIC").info("Stopping Music Bot...")
